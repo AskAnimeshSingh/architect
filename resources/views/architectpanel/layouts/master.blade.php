@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Construction - Super Admin Dashboard Template</title>
+    <title>Construction - Architect Dashboard Template</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
     <!-- Template CSS -->
@@ -25,12 +25,12 @@
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
 
-            @include('superadmin.layouts.header')
-            @include('superadmin.layouts.sidebar')
+            @include('architectpanel.layouts.header')
+            @include('architectpanel.layouts.sidebar')
 
 
             @yield('content')
-            @include('superadmin.layouts.footer')
+            @include('architectpanel.layouts.footer')
 
 
         </div>
