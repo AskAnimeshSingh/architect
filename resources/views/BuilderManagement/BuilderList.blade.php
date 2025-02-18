@@ -6,8 +6,18 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4>Basic DataTables</h4>
+          <h4>List Of Builders</h4>
+          <div class="d-flex justify-content-end">
+            <form>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-plus"></i> Add +
+                </button>
+            </form>
         </div>
+        </div>
+       
+      
+      
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-striped" id="table-1">
