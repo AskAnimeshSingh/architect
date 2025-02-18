@@ -16,7 +16,7 @@
                             Management</span></a>
                     <ul class="dropdown-menu">
 
-                        <li><a class="nav-link" href="#">List of Builder</a></li>
+                        <li><a class="nav-link" href="{{ route('builder.list') }}">List of Builder</a></li>
                         <li><a class="nav-link" href="#">Add Builder</a></li>
                     </ul>
                 </li>
