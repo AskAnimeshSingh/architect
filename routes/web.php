@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Builder\BuilderController;
+use App\Http\Controllers\Compliance\ComplianceController;
 
 // Guest routes (login & register)
 Route::middleware('guest')->group(function () {
@@ -32,10 +33,23 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
 // Other routes can be added with the same method:
 Route::middleware('auth')->prefix('')->group(function () {
-    // Example: Admin routes here
+    // Example: Builder routes here
     // Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('builder-management/list', [BuilderController::class, 'index'])->name('builder.list');
+    Route::get('builder-management/create', [BuilderController::class, 'create'])->name('builder.add');
 
+    // Example: compliance routes here
+    Route::get('compliance/list', [ComplianceController::class, 'index'])->name('compliance.list');
+    Route::get('compliance/create', [ComplianceController::class, 'create'])->name('compliance.add');
+
+
+});
+Route::get('/api/getChartData', function () {
+    return response()->json([
+        'searchEngines' => rand(20, 40),
+        'directClick' => rand(40, 60),
+        'videoClick' => rand(10, 30)
+    ]);
 });
 
 require __DIR__.'/auth.php';

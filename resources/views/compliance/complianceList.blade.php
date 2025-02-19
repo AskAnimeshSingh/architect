@@ -6,8 +6,8 @@
             <div class="col-12">
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0">List Of Builders</h4>
-                    <form action="{{ route('builder.add') }}" method="GET">
+                    <h4 class="mb-0">Compliance List</h4>
+                    <form action="{{ route('compliance.add') }}" method="GET">
                       <button type="submit" class="btn btn-success">
                           <i class="bi bi-plus"></i> Add +
                       </button>

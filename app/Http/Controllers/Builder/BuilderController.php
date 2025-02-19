@@ -18,11 +18,11 @@ class BuilderController extends Controller
     
     
 
-    // // Show the form for creating a new Builder
-    // public function create()
-    // {
-    //     return view('builders.create');
-    // }
+    // Show the form for creating a new Builder
+    public function create()
+    {
+        return view('BuilderManagement.create');
+    }
 
     // // Store a newly created Builder in the database
     // public function store(Request $request)

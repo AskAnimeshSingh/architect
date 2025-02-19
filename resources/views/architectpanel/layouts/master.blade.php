@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <script src="{{ asset('assets/bundles/chartjs/chart.min.js') }}"></script>
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/architectlogo.jpg') }}" style="height: 100px;">
@@ -47,6 +49,24 @@
     <script src="{{ asset('assets/js/page/index.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <!-- General JS Scripts -->
+{{-- <script src="{{ asset('assets/js/app.min.js') }}"></script> --}}
+
+<!-- JS Libraries -->
+<script src="{{ asset('assets/bundles/chartjs/chart.min.js') }}"></script>
+<script src="{{ asset('assets/bundles/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
+<script src="{{ asset('assets/bundles/jqvmap/dist/jquery.vmap.min.js') }}"></script>
+<script src="{{ asset('assets/bundles/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+<script src="{{ asset('assets/bundles/jqvmap/dist/maps/jquery.vmap.indonesia.js') }}"></script>
+
+<!-- Page Specific JS File -->
+<script src="{{ asset('assets/js/page/widget-chart.js') }}"></script>
+<!-- JS Libraies -->
+<script src="{{ asset('assets/bundles/jquery.sparkline.min.js') }}"></script>
+<!-- Page Specific JS File -->
+<script src="{{ asset('assets/js/page/sparkline.js') }}"></script>
+
 
     <!-- Initialize DataTables -->
     <script>
@@ -54,6 +74,7 @@
             $('#table-1').DataTable();
         });
     </script>
+    
 </body>
 
 </html>
