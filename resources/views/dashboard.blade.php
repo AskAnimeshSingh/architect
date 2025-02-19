@@ -76,122 +76,11 @@
                                         <th>Task Status</th>
                                         <th>Assigh Date</th>
                                         <th>Due Date</th>
-                                        <th>Priority</th>
+                                        {{-- <th>Priority</th> --}}
                                         <th>Action</th>
                                     </tr>
                                     <tr>
-                                        <td class="p-0 text-center">
-                                            <div class="custom-checkbox custom-control">
-                                                <input type="checkbox" data-checkboxes="mygroup"
-                                                    class="custom-control-input" id="checkbox-1">
-                                                <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                                            </div>
-                                        </td>
-                                        <td>Architect Panel</td>
-                                        <td class="text-truncate">
-                                            <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-8.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="Animesh Singh"></li>
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-9.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="Satyendra Kumar"></li>
-
-                                                <li class="avatar avatar-sm"><span class="badge badge-primary">+2</span>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="progress-text">10%</div>
-                                            <div class="progress" data-height="6">
-                                                <div class="progress-bar bg-success" data-width="50%"></div>
-                                            </div>
-                                        </td>
-                                        <td>2025-02-18</td>
-                                        <td>2026-03-28</td>
-                                        <td>
-                                            <div class="badge badge-success">High</div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-0 text-center">
-                                            <div class="custom-checkbox custom-control">
-                                                <input type="checkbox" data-checkboxes="mygroup"
-                                                    class="custom-control-input" id="checkbox-2">
-                                                <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                                            </div>
-                                        </td>
-                                        <td>Redesign homepage</td>
-                                        <td class="text-truncate">
-                                            <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-1.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="Wildan Ahdian"></li>
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-2.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="John Deo">
-                                                </li>
-                                                <li class="avatar avatar-sm"><span class="badge badge-primary">+2</span>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="progress-text">40%</div>
-                                            <div class="progress" data-height="6">
-                                                <div class="progress-bar bg-danger" data-width="40%"></div>
-                                            </div>
-                                        </td>
-                                        <td>2017-07-14</td>
-                                        <td>2018-07-21</td>
-                                        <td>
-                                            <div class="badge badge-danger">High</div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-0 text-center">
-                                            <div class="custom-checkbox custom-control">
-                                                <input type="checkbox" data-checkboxes="mygroup"
-                                                    class="custom-control-input" id="checkbox-3">
-                                                <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                                            </div>
-                                        </td>
-                                        <td>Backup database</td>
-                                        <td class="text-truncate">
-                                            <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-3.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="Wildan Ahdian"></li>
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-4.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="John Deo"></li>
-                                                <li class="team-member team-member-sm"><img class="rounded-circle"
-                                                        src="assets/img/users/user-5.png" alt="user"
-                                                        data-toggle="tooltip" title=""
-                                                        data-original-title="Sarah Smith"></li>
-                                                <li class="avatar avatar-sm"><span class="badge badge-primary">+3</span>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="progress-text">55%</div>
-                                            <div class="progress" data-height="6">
-                                                <div class="progress-bar bg-purple" data-width="55%"></div>
-                                            </div>
-                                        </td>
-                                        <td>2019-07-25</td>
-                                        <td>2019-08-17</td>
-                                        <td>
-                                            <div class="badge badge-info">Average</div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        <td colspan="7" class="text-center">No Data Available</td>
                                     </tr>
                                 </table>
                             </div>
@@ -199,6 +88,7 @@
                     </div>
                 </div>
             </div>
+
             {{-- charts end here --}}
             {{-- circle charts starts --}}
             <div class="row">
@@ -232,7 +122,7 @@
                 <div class="col-12 col-md-6 col-lg-6" style="height: 400px;"> <!-- Set fixed height -->
                     <div class="card h-100"> <!-- Ensure card takes full height -->
                         <div class="card-header">
-                            <h4>Bar Chart</h4>
+                            <h4>Progress Report</h4>
                         </div>
                         <div class="card-body">
                             <canvas id="myChart2" style="width: 100%; height: 100%;"></canvas>
@@ -246,35 +136,26 @@
 @endsection
 @push('script')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Data for the bar chart
             const data = {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['Planning', 'Design', 'Review', 'Approval', 'Construction'],
                 datasets: [{
-                    label: 'My First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
-                    ],
-                    borderWidth: 1
-                }]
+                        label: 'Completed',
+                        data: [45, 35, 30, 25, 20],
+                        backgroundColor: 'rgba(54, 92, 235, 1)', // Dark Blue
+                        borderColor: 'rgba(54, 92, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'In Progress',
+                        data: [15, 25, 18, 15, 12],
+                        backgroundColor: 'rgba(135, 206, 250, 1)', // Light Blue
+                        borderColor: 'rgba(135, 206, 250, 1)',
+                        borderWidth: 1
+                    }
+                ]
             };
 
             // Configuration options
@@ -282,9 +163,17 @@
                 type: 'bar',
                 data: data,
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            max: 60
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
                         }
                     }
                 },
@@ -292,7 +181,7 @@
 
             // Get the canvas element and render the chart
             const ctx = document.getElementById('myChart2').getContext('2d');
-            const myChart = new Chart(ctx, config);
+            new Chart(ctx, config);
         });
     </script>
 @endpush

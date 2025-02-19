@@ -2,8 +2,8 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="{{route('dashboard')}}">
-                <img alt="image" src="{{ asset('assets/img/architectlogo.jpg') }}" style="height: 70px;" class="header-logo" />
-                <span class="logo-name" style="font-size: 12px;">Architect</span>
+                <img alt="image" src="{{ asset('assets/img/logo.jpg') }}" style="height: 70px;" class="header-logo" />
+                <span class="logo-name" style="font-size: 12px;">Construction</span>
             </a>
         </div>
         <ul class="sidebar-menu">
