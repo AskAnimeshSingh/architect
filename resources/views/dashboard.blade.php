@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="col-6 pl-0 text-right">
                                     <div class="banner-img">
-                                        <img src="{{asset('assets/img/Builders.jpg')}}" class="img-fluid" alt="">
+                                        <img src="{{ asset('assets/img/Builders.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -34,9 +34,9 @@
                                 </div>
                                 <div class="col-6 pl-0 text-right">
                                     <div class="banner-img">
-                                        <img src="{{asset('assets/img/Projects.png')}}" class="img-fluid" alt="">
+                                        <img src="{{ asset('assets/img/Projects.png') }}" class="img-fluid" alt="">
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,8 @@
                                                         data-original-title="Wildan Ahdian"></li>
                                                 <li class="team-member team-member-sm"><img class="rounded-circle"
                                                         src="assets/img/users/user-2.png" alt="user"
-                                                        data-toggle="tooltip" title="" data-original-title="John Deo">
+                                                        data-toggle="tooltip" title=""
+                                                        data-original-title="John Deo">
                                                 </li>
                                                 <li class="avatar avatar-sm"><span class="badge badge-primary">+2</span>
                                                 </li>
@@ -198,93 +199,100 @@
                     </div>
                 </div>
             </div>
-              {{-- charts end here --}}
-                {{-- circle charts starts --}}
+            {{-- charts end here --}}
+            {{-- circle charts starts --}}
             <div class="row">
+                <!-- Compliance Status Chart -->
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                    <div class="card mt-sm-5 mt-md-0">
+                    <div class="card mt-sm-5 mt-md-0" style="height: 400px;"> <!-- Set fixed height -->
                         <div class="card-header">
-                            <h4>Visitors</h4>
+                            <h4>Compliance Status</h4>
                         </div>
-                        <div class="card-body">
-                            <canvas id="donutChart"></canvas>
+                        <div class="card-body d-flex flex-column">
+                            <div class="text-center flex-grow-1 d-flex align-items-center justify-content-center">
+                                <!-- Sparkline chart container with data-values -->
+                                <div class="sparkline-pie d-inline" id="visitorChart" style="width: 100%; height: 100%;">
+                                </div>
+                            </div>
                             <ul class="p-t-30 list-unstyled">
-                                <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-black"></i></span>Search
-                                    Engines<span class="float-right">30%</span></li>
-                                <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-green"></i></span>Direct
-                                    Click<span class="float-right">50%</span></li>
-                                <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-orange"></i></span>Video
-                                    Click<span class="float-right">20%</span></li>
+                                <li class="padding-5"><span><i
+                                            class="fa fa-circle m-r-5 col-red"></i></span>Non-Compliance<span
+                                        class="float-right">33.7%</span></li>
+                                <li class="padding-5"><span><i
+                                            class="fa fa-circle m-r-5 col-blue"></i></span>Compliance<span
+                                        class="float-right">50%</span></li>
+                                <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-yellow"></i></span>In
+                                    Review<span class="float-right">16.7%</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                              {{-- circle charts ends --}}
-                              <div class="col-12 col-md-6 col-lg-6">
-                                <div class="card">
-                                  <div class="card-header">
-                                    <h4>Pie Chart</h4>
-                                  </div>
-                                  <div class="card-body">
-                                    <div class="text-center">
-                                      <div class="sparkline-pie d-inline"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
 
-
-
-
+                <!-- Bar Chart -->
+                <div class="col-12 col-md-6 col-lg-6" style="height: 400px;"> <!-- Set fixed height -->
+                    <div class="card h-100"> <!-- Ensure card takes full height -->
+                        <div class="card-header">
+                            <h4>Bar Chart</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="myChart2" style="width: 100%; height: 100%;"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
     </div>
     </section>
     </div>
 @endsection
-@push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var ctx = document.getElementById("donutChart").getContext("2d");
+@push('script')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        // Fetching data dynamically from Blade template
-        var data = {
-            labels: ["Search Engines", "Direct Click", "Video Click"],
-            datasets: [{
-                data: [{{ $searchEngines ?? 30 }}, {{ $directClick ?? 50 }}, {{ $videoClick ?? 20 }}],
-                backgroundColor: ["#f44336", "#4caf50", "#ff9800"],
-            }]
-        };
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Data for the bar chart
+            const data = {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
 
-        var donutChart = new Chart(ctx, {
-            type: "doughnut",
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
+            // Configuration options
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
-                }
-            }
+                },
+            };
+
+            // Get the canvas element and render the chart
+            const ctx = document.getElementById('myChart2').getContext('2d');
+            const myChart = new Chart(ctx, config);
         });
-
-        // Update chart dynamically if values change in Blade
-        function updateChart(newData) {
-            donutChart.data.datasets[0].data = newData;
-            donutChart.update();
-        }
-
-        // Example of updating chart dynamically
-        setInterval(() => {
-            fetch("/api/getChartData") // Adjust this URL to your Laravel route
-                .then(response => response.json())
-                .then(newData => {
-                    updateChart([newData.searchEngines, newData.directClick, newData.videoClick]);
-                });
-        }, 5000); // Refresh data every 5 seconds (Adjust as needed)
-    });
-</script>
-  
+    </script>
 @endpush
