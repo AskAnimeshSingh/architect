@@ -1,49 +1,70 @@
 @extends('architectpanel.layouts.master')
+<style>
+    .chart-container {
+        width: 100%;
+        max-width: 350px;
+        / ✅ Adjust width /
+        height: 260px;
+        / ✅ Ensure proper height /
+        margin: auto;
+    }
 
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
 @section('content')
     <div class="main-content">
         <section class="section">
-            <div class="row d-flex flex-wrap justify-content-center">
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
-                    <div class="card" style="width: 65%; height: 150px;">
-                        <div class="card-statistic-4 d-flex align-items-center">
-                            <div class="row w-100">
-                                <div class="col-6 pr-0 pt-3">
+            <div class="row">
+                <!-- Total Builders Card -->
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                    <div class="card" style="width: 100%; height: 180px;">
+                        <div class="card-statistic-4 d-flex align-items-center h-100">
+                            <div class="row w-100 h-100">
+                                <div class="col-6 pr-0 d-flex align-items-center">
                                     <div class="card-content">
-                                        <h5>Total Builders: 2</h5>
+                                        <h5 class="mb-0">Total Builder</h5>
+                                        {{-- <p class="mb-0">12</p> --}}
+                                        <h6 class="mb-0">12</h6>
                                     </div>
                                 </div>
-                                <div class="col-6 pl-0 text-right">
-                                    <div class="banner-img">
-                                        <img src="{{ asset('assets/img/Builders.jpg') }}" class="img-fluid" alt="">
+                                <div class="col-6 pl-0 d-flex align-items-center justify-content-end">
+                                    <div class="banner-img h-100">
+                                        <img src="{{ asset('assets/img/Build.PNG') }}" style="object-fit: cover;">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
-                    <div class="card" style="width: 65%; height: 150px;">
-                        <div class="card-statistic-4 d-flex align-items-center">
-                            <div class="row w-100">
-                                <div class="col-6 pr-0 pt-3">
+            
+                <!-- Total Projects Card -->
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-1">
+                    <div class="card" style="width: 100%; height: 180px;">
+                        <div class="card-statistic-4 d-flex align-items-center h-100">
+                            <div class="row w-100 h-100">
+                                <div class="col-6 pr-0 d-flex align-items-center">
                                     <div class="card-content">
-                                        {{-- Content for Builders --}}
-                                        <h5>Total Projects: 5</h5>
+                                        <h5 class="mb-0">Total Project</h5>
+                                        {{-- <p class="mb-0">66</p> --}}
+                                        <h6 class="mb-0">66</h6>
                                     </div>
                                 </div>
-                                <div class="col-6 pl-0 text-right">
-                                    <div class="banner-img">
-                                        <img src="{{ asset('assets/img/Projects.png') }}" class="img-fluid" alt="">
+                                <div class="col-6 pl-0 d-flex align-items-center justify-content-end">
+                                    <div class="banner-img h-100">
+                                        <img src="{{asset('assets/img/prj.PNG')}}" class="img-fluid h-100" alt="Projects" style="object-fit: cover;">
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- chart starts here --}}
+            
+
+            {{-- Chart Starts Here --}}
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -74,9 +95,8 @@
                                         <th>Project Name</th>
                                         <th>Members</th>
                                         <th>Task Status</th>
-                                        <th>Assigh Date</th>
+                                        <th>Assign Date</th>
                                         <th>Due Date</th>
-                                        {{-- <th>Priority</th> --}}
                                         <th>Action</th>
                                     </tr>
                                     <tr>
@@ -89,49 +109,41 @@
                 </div>
             </div>
 
-            {{-- charts end here --}}
-            {{-- circle charts starts --}}
+            {{-- Charts End Here --}}
+            {{-- Circle Charts Start --}}
             <div class="row">
                 <!-- Compliance Status Chart -->
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-                    <div class="card mt-sm-5 mt-md-0" style="height: 400px;"> <!-- Set fixed height -->
-                        <div class="card-header">
-                            <h4>Compliance Status</h4>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <div class="text-center flex-grow-1 d-flex align-items-center justify-content-center">
-                                <!-- Sparkline chart container with data-values -->
-                                <div class="sparkline-pie d-inline" id="visitorChart" style="width: 100%; height: 100%;">
+                <div class="col-12 col-sm-12 col-lg-6">
+                    <div class="container mt-5">
+                        <div class="card shadow-sm" style="height: 400px;">
+                            <div class="card-header text-center">
+                                <h5>Compliance Status</h5>
+                            </div>
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                                <div class="chart-container" style="width: 90%; max-width: 300px; height: auto;">
+                                    <canvas id="projectStatusChart"></canvas>
                                 </div>
                             </div>
-                            <ul class="p-t-30 list-unstyled">
-                                <li class="padding-5"><span><i
-                                            class="fa fa-circle m-r-5 col-red"></i></span>Non-Compliance<span
-                                        class="float-right">33.7%</span></li>
-                                <li class="padding-5"><span><i
-                                            class="fa fa-circle m-r-5 col-blue"></i></span>Compliance<span
-                                        class="float-right">50%</span></li>
-                                <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-yellow"></i></span>In
-                                    Review<span class="float-right">16.7%</span></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
-
+            
                 <!-- Bar Chart -->
-                <div class="col-12 col-md-6 col-lg-6" style="height: 400px;"> <!-- Set fixed height -->
-                    <div class="card h-100"> <!-- Ensure card takes full height -->
-                        <div class="card-header">
-                            <h4>Progress Report</h4>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="myChart2" style="width: 100%; height: 100%;"></canvas>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="container mt-5">
+                        <div class="card shadow-sm" style="height: 400px;">
+                            <div class="card-header">
+                                <h4>Progress Report</h4>
+                            </div>
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                                <canvas id="myChart2" style="width: 100%; height: 100%;"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
+            
+        </section>
     </div>
 @endsection
 @push('script')
@@ -182,6 +194,23 @@
             // Get the canvas element and render the chart
             const ctx = document.getElementById('myChart2').getContext('2d');
             new Chart(ctx, config);
+        });
+        var ctx = document.getElementById('projectStatusChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'In Progress', 'Pending'],
+                datasets: [{
+                    data: [45, 30, 25], // ✅ Data values
+                    backgroundColor: ['#28a745', '#f39c12', '#e74c3c'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%' // ✅ Donut Effect
+            }
         });
     </script>
 @endpush

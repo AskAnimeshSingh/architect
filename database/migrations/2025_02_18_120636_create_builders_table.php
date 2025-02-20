@@ -1,30 +1,25 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up()
     {
-        Schema::create('builders', function (Blueprint $table) {
+        Schema::create('connect_builder', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->timestamps();  // for created_at and updated_at columns
+            $table->unsignedBigInteger('builder_id');
+            $table->text('message');
+            $table->timestamps();
+
+            // Foreign Key Constraint
+            $table->foreign('builder_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('builders');
+        Schema::dropIfExists('builder_messages');
     }
 };
+

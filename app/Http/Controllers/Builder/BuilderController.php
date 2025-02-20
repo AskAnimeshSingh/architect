@@ -2,71 +2,89 @@
 
 namespace App\Http\Controllers\Builder;
 
-
 use App\Models\Builder;
-use App\Http\Controllers\Controller;  // Correct this line to use 'Controller' instead of 'Controllers'
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class BuilderController extends Controller
 {
-    // Display a listing of Builders
     public function index()
     {
-        return view('BuilderManagement.BuilderList');  // Simply return the view without passing any data
+        // $builders = Builder::all();
+        return view('BuilderManagement.BuilderList');
     }
-    
-    
 
-    // Show the form for creating a new Builder
     public function create()
     {
         return view('BuilderManagement.create');
     }
 
-    // // Store a newly created Builder in the database
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'description' => 'required',
-    //     ]);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'company_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:builders,email',
+            'phone' => 'required|string|max:15',
+            'password' => 'required|min:6',
+            'status' => 'required|in:active,inactive',
+        ]);
 
-    //     Builder::create($request->all());
+        try {
+            Builder::create([
+                'name' => $request->name,
+                'company_name' => $request->company_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->password),
+                'status' => $request->status,
+            ]);
 
-    //     return redirect()->route('builders.index')->with('success', 'Builder created successfully.');
-    // }
+            return redirect()->route('builder.index')->with('success', 'Builder added successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong! ' . $e->getMessage());
+        }
+    }
 
-    // // Display the specified Builder
-    // public function show(Builder $builder)
-    // {
-    //     return view('builders.show', compact('builder'));
-    // }
+    public function edit(Builder $builder)
+    {
+        return view('BuilderManagement.edit', compact('builder'));
+    }
 
-    // // Show the form for editing the specified Builder
-    // public function edit(Builder $builder)
-    // {
-    //     return view('builders.edit', compact('builder'));
-    // }
+    public function update(Request $request, Builder $builder)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'company_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:builders,email,' . $builder->id,
+            'phone' => 'required|string|max:15',
+            'status' => 'required|in:active,inactive',
+            'password' => 'nullable|min:6', // Optional password update
+        ]);
 
-    // // Update the specified Builder in the database
-    // public function update(Request $request, Builder $builder)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'description' => 'required',
-    //     ]);
+        try {
+            $data = $request->only(['name', 'company_name', 'email', 'phone', 'status']);
 
-    //     $builder->update($request->all());
+            if ($request->filled('password')) {
+                $data['password'] = Hash::make($request->password);
+            }
 
-    //     return redirect()->route('builders.index')->with('success', 'Builder updated successfully.');
-    // }
+            $builder->update($data);
 
-    // // Remove the specified Builder from the database
-    // public function destroy(Builder $builder)
-    // {
-    //     $builder->delete();
+            return redirect()->route('builder.index')->with('success', 'Builder updated successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong! ' . $e->getMessage());
+        }
+    }
 
-    //     return redirect()->route('builders.index')->with('success', 'Builder deleted successfully.');
-    // }
+    public function destroy(Builder $builder)
+    {
+        try {
+            $builder->delete();
+            return redirect()->route('builder.index')->with('success', 'Builder deleted successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong! ' . $e->getMessage());
+        }
+    }
 }

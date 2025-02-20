@@ -10,10 +10,10 @@
           <i data-feather="maximize"></i>
         </a></li> --}}
             <li style="margin-top: 8px;">Architect Panel</li>
-            <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+            {{-- <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
                     <i data-feather="maximize"></i>
-                </a></li>
-            <li>
+                </a></li> --}}
+            {{-- <li>
                 <form class="form-inline mr-auto">
                     <div class="search-element">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search"
@@ -23,7 +23,7 @@
                         </button>
                     </div>
                 </form>
-            </li>
+            </li> --}}
             <li>
 
             </li>

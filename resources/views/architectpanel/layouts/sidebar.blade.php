@@ -1,3 +1,4 @@
+
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -16,7 +17,7 @@
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="map"></i><span>Builder Management</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('builder.list') }}">List of Builder</a></li>
-                    <li><a class="nav-link" href="{{ route('builder.add') }}">Add Builder</a></li>
+                    <li><a class="nav-link" href="{{ route('builder.add') }}">Connect Builder</a></li>
                 </ul>
             </li>
 
@@ -24,8 +25,8 @@
             <li class="dropdown {{ request()->routeIs('project.*') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="globe"></i><span>Project Management</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Create Package</a></li>
-                    <li><a class="nav-link" href="#">Add Package</a></li>
+                    <li><a class="nav-link" href="{{route('project.list')}}">List of Projects</a></li>
+                    <li><a class="nav-link" href="#">Add Projects</a></li>
                 </ul>
             </li>
 
@@ -33,8 +34,8 @@
             <li class="dropdown {{ request()->routeIs('municipal.*') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="grid"></i><span>My Municipal</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Project Approval</a></li>
-                    <li><a class="nav-link" href="#">Project Objection</a></li>
+                    <li><a class="nav-link" href="{{route('mymunicipal.approve')}}">Project Approval</a></li>
+                    <li><a class="nav-link" href="{{route('mymunicipal.objection')}}">Project Objection</a></li>
                 </ul>
             </li>
 
@@ -60,7 +61,7 @@
             <li class="dropdown {{ request()->routeIs('settings.*') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Settings</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Roles & Permissions</a></li>
+                    <li><a class="nav-link" href="{{ route('roles') }}">Roles & Permissions</a></li>
                 </ul>
             </li>
         </ul>

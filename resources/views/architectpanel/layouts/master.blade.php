@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -24,8 +24,7 @@
 
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/architectlogo.jpg') }}"
-        style="height: 100px;">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo.jpg') }}" style="height: 100px;">
 </head>
 
 <body>
@@ -82,7 +81,7 @@
             $('#table-1').DataTable();
         });
     </script>
-@stack('script')
+    @stack('script')
 </body>
 
 </html>
